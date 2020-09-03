@@ -1,0 +1,9 @@
+/Users/harshtiku/Desktop/Engine/particles/bin/Debug/netstandard2.0/particles.deps.json
+/Users/harshtiku/Desktop/Engine/particles/bin/Debug/netstandard2.0/particles.dll
+/Users/harshtiku/Desktop/Engine/particles/bin/Debug/netstandard2.0/particles.pdb
+/Users/harshtiku/Desktop/Engine/particles/obj/Debug/netstandard2.0/particles.csprojAssemblyReference.cache
+/Users/harshtiku/Desktop/Engine/particles/obj/Debug/netstandard2.0/particles.csproj.CoreCompileInputs.cache
+/Users/harshtiku/Desktop/Engine/particles/obj/Debug/netstandard2.0/particles.AssemblyInfoInputs.cache
+/Users/harshtiku/Desktop/Engine/particles/obj/Debug/netstandard2.0/particles.AssemblyInfo.cs
+/Users/harshtiku/Desktop/Engine/particles/obj/Debug/netstandard2.0/particles.dll
+/Users/harshtiku/Desktop/Engine/particles/obj/Debug/netstandard2.0/particles.pdb

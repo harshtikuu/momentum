@@ -21,9 +21,18 @@ namespace Engine.Particles
             this.z = z;
         }
 
+        public Vector addScaledVector(Vector vector,decimal scalingfactor)
+        {
+            var scaledVec =vector*scalingfactor;
+            var resultant = new Vector();
+            resultant.x = this.x + scaledVec.x;
+            resultant.y = this.y + scaledVec.y;
+            resultant.z = this.z + scaledVec.z;
+            return resultant;
+        }
         public static Vector operator+(Vector v)
         {
-            return v;
+            return new Vector(v.x,v.y,v.z);
         }
 
         public static Vector operator-(Vector v)

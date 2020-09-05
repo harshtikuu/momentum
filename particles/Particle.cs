@@ -8,45 +8,15 @@ namespace Engine.Particles
         public Vector position {get;protected set;}
         public Vector velocity {get;protected set;}
         public Vector acceleration { get; protected set;}
-        public double mass
-        {
-            get
-            {
-                if(IsMassInfinite)
-                {
-                    throw new ArgumentOutOfRangeException("Infinte Mass");
-                }
-                else
-                {
-                    return this.mass;
-                }
-            } 
-        protected set{}
-        }
-        public bool IsMassInfinite { get; set; }
-        public double inverseMass
-        {
-            get
-            {
-                if(IsMassInfinite)
-                {
-                    return 0;
-                }
-
-                if(this.mass == 0)
-                {
-                    throw new DivideByZeroException();
-                }
-                return (1/this.mass);
-            }
-            private set{}
-        }        
+    
+        public double mass { get; protected set; }    
+        public double inverseMass { get; protected set; }     
         public Vector forceAccum {get;set;}
         public void Integrate(double tick)
         {
             double duration = (double)tick;
-            //this.acceleration.addScaledVector(this.forceAccum,inverseMass);
-            //this.forceAccum.clear();
+            this.acceleration.addScaledVector(this.forceAccum,inverseMass);
+            this.forceAccum.clear();
 
             this.position = this.position.addScaledVector(this.velocity,duration); 
             this.position = this.position.addScaledVector(this.acceleration,duration*duration*0.5);
@@ -57,7 +27,15 @@ namespace Engine.Particles
         }
         public void setMass(double mass)
         {
-            this.mass = mass;
+            if(mass>0)
+            {
+                this.mass = mass;
+                this.inverseMass = 1.0/mass;
+            }
+            else
+            {
+                throw new ArgumentException("Can't set zero or negative mass");
+            }
         }
 
         public void setPostition(Vector pos)
@@ -67,12 +45,6 @@ namespace Engine.Particles
         public void setVelocity(Vector v)
         {
             this.velocity = v;
-        }
-
-        public void setInfiniteMass()
-        {
-            this.inverseMass = 0;
-            this.IsMassInfinite = true;
         }
 
         public void setAcceleration(Vector a)

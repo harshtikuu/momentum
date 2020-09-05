@@ -15,11 +15,9 @@ namespace Engine.Driver
             projectile = new Particle();
             var initialPosition = new Vector(0,0,0);
             
-            projectile.setPostition(initialPosition);
-            
-            var initialVelocity = GetVectorFromPolarForm(30,Math.PI/4);
+            projectile.setPostition(initialPosition);            
+            var initialVelocity = GetVectorFromPolarForm(75,Math.PI/3);
             projectile.setVelocity(initialVelocity);
-
             var g = new Vector(0,-10,0);
             projectile.setAcceleration(g);
 
@@ -31,10 +29,10 @@ namespace Engine.Driver
         {
             var positionWithTime = new List<Snapshot>();
             double startTime = 0f;
-            double endtime = 10f;
+            //double endtime = 10f;
             double tick = GetTickFromFPS(20);
 
-            while(startTime<endtime)
+            while(projectile.position.y>=0)
             {
                 var snapshot = new Snapshot(projectile.position,startTime);
                 positionWithTime.Add(snapshot);
@@ -49,6 +47,7 @@ namespace Engine.Driver
         public void SaveSimulationToJson(string fileName,List<Snapshot> simulation)
         {
             string json = JsonConvert.SerializeObject(simulation);
+            fileName = "./simulations/"+fileName;
             File.WriteAllText(fileName,json);
 
         }

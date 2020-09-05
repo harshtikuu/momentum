@@ -1,4 +1,5 @@
 using System;
+using Extensions;
 
 namespace Engine.Particles
 {
@@ -39,14 +40,19 @@ namespace Engine.Particles
                 return (1/this.mass);
             }
             private set{}
-        }
-
+        }        
+        public Vector forceAccum {get;set;}
         public void Integrate(TimeSpan tick)
         {
             decimal duration = (decimal)tick.TotalSeconds;
-            this.position = this.position.addScaledVector(this.velocity,duration);
+            this.acceleration.addScaledVector(this.forceAccum,inverseMass);
+            this.forceAccum.clear();
+
+            this.position = this.position.addScaledVector(this.velocity,duration); 
             this.position = this.position.addScaledVector(this.acceleration,duration*duration*0.5M);
+
             this.velocity = this.velocity.addScaledVector(this.acceleration,duration);
+
             
         }
         public void setMass(decimal mass)
@@ -75,3 +81,6 @@ namespace Engine.Particles
         }
     }
 }
+
+
+

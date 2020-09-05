@@ -5,23 +5,23 @@ namespace Engine.Particles
     public class Vector
     {
 
-        public decimal x { get; set; }
-        public decimal y { get; set; }
-        public decimal z { get; set; }
+        public double x { get; set; }
+        public double y { get; set; }
+        public double z { get; set; }
         public Vector()
         {
             this.x = 0;
             this.y = 0;
             this.z = 0;
         }
-        public Vector(decimal x,decimal y, decimal z)
+        public Vector(double x,double y, double z)
         {
             this.x = x;
             this.y = y;
             this.z = z;
         }
 
-        public Vector addScaledVector(Vector vector,decimal scalingfactor)
+        public Vector addScaledVector(Vector vector,double scalingfactor)
         {
             var scaledVec =vector*scalingfactor;
             var resultant = new Vector();
@@ -55,7 +55,7 @@ namespace Engine.Particles
             return u+(-v);
         }
 
-        public static Vector operator*(Vector vector,decimal a)
+        public static Vector operator*(Vector vector,double a)
         {
             Vector scaled = new Vector();
             scaled.x = vector.x*a;
@@ -64,9 +64,9 @@ namespace Engine.Particles
             return scaled;
         }
 
-        public decimal dot(Vector v)
+        public double dot(Vector v)
         {
-            decimal dotproduct = this.x+v.x+this.y+v.y+this.z+v.z;
+            double dotproduct = this.x+v.x+this.y+v.y+this.z+v.z;
             return dotproduct;
         }
 

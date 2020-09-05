@@ -8,7 +8,7 @@ namespace Engine.Particles
         public Vector position {get;protected set;}
         public Vector velocity {get;protected set;}
         public Vector acceleration { get; protected set;}
-        public decimal mass
+        public double mass
         {
             get
             {
@@ -24,7 +24,7 @@ namespace Engine.Particles
         protected set{}
         }
         public bool IsMassInfinite { get; set; }
-        public decimal inverseMass
+        public double inverseMass
         {
             get
             {
@@ -42,20 +42,20 @@ namespace Engine.Particles
             private set{}
         }        
         public Vector forceAccum {get;set;}
-        public void Integrate(TimeSpan tick)
+        public void Integrate(double tick)
         {
-            decimal duration = (decimal)tick.TotalSeconds;
-            this.acceleration.addScaledVector(this.forceAccum,inverseMass);
-            this.forceAccum.clear();
+            double duration = (double)tick;
+            //this.acceleration.addScaledVector(this.forceAccum,inverseMass);
+            //this.forceAccum.clear();
 
             this.position = this.position.addScaledVector(this.velocity,duration); 
-            this.position = this.position.addScaledVector(this.acceleration,duration*duration*0.5M);
+            this.position = this.position.addScaledVector(this.acceleration,duration*duration*0.5);
 
             this.velocity = this.velocity.addScaledVector(this.acceleration,duration);
 
             
         }
-        public void setMass(decimal mass)
+        public void setMass(double mass)
         {
             this.mass = mass;
         }

@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Engine.Driver
+namespace Engine.Driver.Projectile
 {
     public class ProjectileSimulator
     {
@@ -25,8 +25,10 @@ namespace Engine.Driver
 
         }
 
-        public List<Snapshot> Simulate()
+        public ProjectileSimulation Simulate()
         {
+            ProjectileSimulation simulation = new ProjectileSimulation();
+            simulation.InitialVelocity = projectile.velocity;
             var positionWithTime = new List<Snapshot>();
             double startTime = 0f;
             //double endtime = 10f;
@@ -40,11 +42,11 @@ namespace Engine.Driver
                 projectile.Integrate(tick);
                 startTime+=tick;
             }
-
-            return positionWithTime;
+            simulation.Snapshots = positionWithTime;
+            return simulation;
         }
 
-        public void SaveSimulationToJson(string fileName,List<Snapshot> simulation)
+        public void SaveSimulationToJson(string fileName,ProjectileSimulation simulation)
         {
             string json = JsonConvert.SerializeObject(simulation);
             fileName = "./simulations/"+fileName;
@@ -72,16 +74,5 @@ namespace Engine.Driver
 
     }
 
-    public class Snapshot
-    {
-        public Vector Location { get; set; }
-        public double Time { get; set; }
-
-        public Snapshot(Vector Location,double Time)
-        {
-            this.Location = Location;
-            this.Time = Time;
-        }
-
-    }
+    
 }

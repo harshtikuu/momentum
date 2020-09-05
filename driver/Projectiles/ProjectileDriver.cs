@@ -1,4 +1,4 @@
-namespace Engine.Driver
+namespace Engine.Driver.Projectile
 {
     public class ProjectileDriver
     {

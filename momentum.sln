@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.1209
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "driver", "driver\driver.csproj", "{CB6A17FD-A3DA-4788-8C5A-09FCCB89309E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "momentum", "Engine.Particles\momentum.csproj", "{DB2E8EDD-97DC-4679-A3DC-FD3223797506}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "momentum", "momentum\momentum.csproj", "{DB2E8EDD-97DC-4679-A3DC-FD3223797506}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

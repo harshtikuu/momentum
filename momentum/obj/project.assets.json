@@ -717,30 +717,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tikuhar\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/harshtiku/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tikuhar\\Desktop\\momentum\\Engine.Particles\\momentum.csproj",
+      "projectUniqueName": "/Users/harshtiku/Desktop/Engine/momentum/momentum.csproj",
       "projectName": "momentum",
-      "projectPath": "C:\\Users\\tikuhar\\Desktop\\momentum\\Engine.Particles\\momentum.csproj",
-      "packagesPath": "C:\\Users\\tikuhar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tikuhar\\Desktop\\momentum\\Engine.Particles\\obj\\",
+      "projectPath": "/Users/harshtiku/Desktop/Engine/momentum/momentum.csproj",
+      "packagesPath": "/Users/harshtiku/.nuget/packages/",
+      "outputPath": "/Users/harshtiku/Desktop/Engine/momentum/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\tikuhar\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/harshtiku/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

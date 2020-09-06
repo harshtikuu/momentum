@@ -23,10 +23,7 @@ namespace Engine.Common
         public Vector addScaledVector(Vector vector,double scalingfactor)
         {
             var scaledVec =vector*scalingfactor;
-            var resultant = new Vector();
-            resultant.x = this.x + scaledVec.x;
-            resultant.y = this.y + scaledVec.y;
-            resultant.z = this.z + scaledVec.z;
+            Vector resultant = this+scaledVec;
             return resultant;
         }
         public static Vector operator+(Vector v)
@@ -52,6 +49,14 @@ namespace Engine.Common
             sum.y = u.y+v.y;
             sum.z = u.z+v.z;
             return sum;
+        }
+        public static Vector GetVectorFromPolarForm(double r, double theta)
+        {
+            var vector = new Vector();
+            vector.x = (double)(r*Math.Cos(theta));
+            vector.y = (double)(r*Math.Sin(theta));
+
+            return vector;
         }
 
         public static Vector operator-(Vector u,Vector v)
@@ -95,6 +100,10 @@ namespace Engine.Common
         {
             Vector unitVector = new Vector();
             double magnitude = this.magnitude();
+            if(magnitude==0)
+            {
+                return Vector.Zero();
+            }
             unitVector.x = this.x/magnitude;
             unitVector.y = this.y/magnitude;
             unitVector.z = this.z/magnitude;

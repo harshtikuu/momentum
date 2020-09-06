@@ -16,7 +16,7 @@ namespace Engine.Particles
         public void Integrate(double tick)
         {
             double duration = (double)tick;
-            this.acceleration.addScaledVector(this.forceAccum,inverseMass);
+            this.acceleration = this.acceleration.addScaledVector(this.forceAccum,inverseMass);
             this.forceAccum.clear();
 
             this.position = this.position.addScaledVector(this.velocity,duration); 

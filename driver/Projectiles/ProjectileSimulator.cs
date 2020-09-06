@@ -1,5 +1,6 @@
 using Engine.Particles;
 using Engine.Common;
+using Engine.Driver.Utilities;
 using System;
 using Newtonsoft.Json;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace Engine.Driver.Projectile
             var initialPosition = new Vector(0,0,0);
             
             projectile.setPostition(initialPosition);            
-            var initialVelocity = GetVectorFromPolarForm(75,Math.PI/3);
+            var initialVelocity = Vector.GetVectorFromPolarForm(75,Math.PI/3);
             projectile.setVelocity(initialVelocity);
             var g = new Vector(0,-10,0);
             projectile.setAcceleration(g);
@@ -33,7 +34,7 @@ namespace Engine.Driver.Projectile
             var positionWithTime = new List<Snapshot>();
             double startTime = 0f;
             //double endtime = 10f;
-            double tick = GetTickFromFPS(20);
+            double tick = Utils.GetTickFromFPS(20);
 
             while(projectile.position.y>=0)
             {
@@ -53,23 +54,6 @@ namespace Engine.Driver.Projectile
             fileName = "./simulations/"+fileName;
             File.WriteAllText(fileName,json);
 
-        }
-
-        private Vector GetVectorFromPolarForm(double r, double theta)
-        {
-            var vector = new Vector();
-            vector.x = (double)(r*Math.Cos(theta));
-            vector.y = (double)(r*Math.Sin(theta));
-
-            return vector;
-        }
-
-        private double GetTickFromFPS(int fps)
-        {
-            if (fps>0)
-                return 1.0/fps;
-            else
-                throw new DivideByZeroException();
         }
 
 

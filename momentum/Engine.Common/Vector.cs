@@ -4,7 +4,6 @@ namespace Engine.Common
 {
     public class Vector
     {
-
         public double x { get; set; }
         public double y { get; set; }
         public double z { get; set; }
@@ -33,6 +32,11 @@ namespace Engine.Common
         public static Vector operator+(Vector v)
         {
             return new Vector(v.x,v.y,v.z);
+        }
+
+        public static Vector Zero()
+        {
+            return new Vector(0,0,0);
         }
 
         public static Vector operator-(Vector v)
@@ -79,6 +83,23 @@ namespace Engine.Common
 
             return cross;
         }
+
+        public double magnitude()
+        {
+            double Magnitude =  Math.Pow(this.x,2)+Math.Pow(this.y,2)+Math.Pow(this.z,2);
+            Magnitude = Math.Sqrt(Magnitude);
+            return Magnitude;
+        }
+
+        public Vector getUnitVector()
+        {
+            Vector unitVector = new Vector();
+            double magnitude = this.magnitude();
+            unitVector.x = this.x/magnitude;
+            unitVector.y = this.y/magnitude;
+            unitVector.z = this.z/magnitude;
+            return unitVector;
+        }   
 
         public override string ToString()
         {

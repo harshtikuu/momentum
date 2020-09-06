@@ -7,6 +7,6 @@ namespace Engine.Interfaces
 {
     public interface IForceGenerator
     {
-        void UpdateForces(ref Particle particle, double tick);
+        void applyForce(ref Particle particle, double tick);
     }
 }

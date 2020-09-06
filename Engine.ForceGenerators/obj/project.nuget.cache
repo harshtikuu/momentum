@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "4IZj3dUCNh3/b2RAwj0ZfBRw76UBGeDvEI5bspFtjpmwS3cWMwx9rRKr5gB+aRdJCgVjdUzn37HHWK8Y1EwjxQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\tikuhar\\Desktop\\momentum\\Engine.ForceGenerators\\Engine.ForceGenerators.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tikuhar\\.nuget\\packages\\microsoft.netcore.app\\2.0.0\\microsoft.netcore.app.2.0.0.nupkg.sha512",
+    "C:\\Users\\tikuhar\\.nuget\\packages\\microsoft.netcore.dotnetapphost\\2.0.0\\microsoft.netcore.dotnetapphost.2.0.0.nupkg.sha512",
+    "C:\\Users\\tikuhar\\.nuget\\packages\\microsoft.netcore.dotnethostpolicy\\2.0.0\\microsoft.netcore.dotnethostpolicy.2.0.0.nupkg.sha512",
+    "C:\\Users\\tikuhar\\.nuget\\packages\\microsoft.netcore.dotnethostresolver\\2.0.0\\microsoft.netcore.dotnethostresolver.2.0.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\tikuhar\\.nuget\\packages\\netstandard.library\\2.0.0\\netstandard.library.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

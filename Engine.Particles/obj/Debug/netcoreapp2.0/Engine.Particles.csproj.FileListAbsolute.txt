@@ -1,0 +1,9 @@
+C:\Users\tikuhar\Desktop\momentum\Engine.Particles\bin\Debug\netcoreapp2.0\Engine.Particles.deps.json
+C:\Users\tikuhar\Desktop\momentum\Engine.Particles\bin\Debug\netcoreapp2.0\Engine.Particles.dll
+C:\Users\tikuhar\Desktop\momentum\Engine.Particles\bin\Debug\netcoreapp2.0\Engine.Particles.pdb
+C:\Users\tikuhar\Desktop\momentum\Engine.Particles\obj\Debug\netcoreapp2.0\Engine.Particles.csprojAssemblyReference.cache
+C:\Users\tikuhar\Desktop\momentum\Engine.Particles\obj\Debug\netcoreapp2.0\Engine.Particles.csproj.CoreCompileInputs.cache
+C:\Users\tikuhar\Desktop\momentum\Engine.Particles\obj\Debug\netcoreapp2.0\Engine.Particles.AssemblyInfoInputs.cache
+C:\Users\tikuhar\Desktop\momentum\Engine.Particles\obj\Debug\netcoreapp2.0\Engine.Particles.AssemblyInfo.cs
+C:\Users\tikuhar\Desktop\momentum\Engine.Particles\obj\Debug\netcoreapp2.0\Engine.Particles.dll
+C:\Users\tikuhar\Desktop\momentum\Engine.Particles\obj\Debug\netcoreapp2.0\Engine.Particles.pdb

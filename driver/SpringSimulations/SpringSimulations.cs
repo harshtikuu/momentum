@@ -32,7 +32,17 @@ namespace Engine.Driver
             var initialVelocity = new Vector(10,0,0);
             mass.setPostition(new Vector(0,0,0));
             mass.setVelocity(initialVelocity);
+            mass.forceAccum = Vector.Zero();
+            mass.setAcceleration(getAcceleration(mass));
             
+        }
+
+        public Vector getAcceleration(Particle mass)
+        {
+            double k = 5;
+            var force = -(mass.position*k);
+            var acc = force*mass.inverseMass;
+            return acc;
         }
 
         public List<Snapshot> Simulate()
@@ -40,14 +50,15 @@ namespace Engine.Driver
             var response = new List<Snapshot>();
             InitialiseParticle();
             double startTime = 0;
-            double EndTime = 10;
-            double tick = Utils.GetTickFromFPS(1);
+            double EndTime = 50;
+            double tick = Utils.GetTickFromFPS(60);
 
             while(startTime<EndTime)
             {
                 var snapshot = new Snapshot(this.mass.position,startTime);
                 response.Add(snapshot);
-                forceGenerator.applyForce(ref mass,tick);
+                mass.setAcceleration(getAcceleration(mass));
+                //forceGenerator.applyForce(ref mass,tick);
                 mass.Integrate(tick);
                 startTime+=tick;
             }

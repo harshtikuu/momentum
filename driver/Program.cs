@@ -7,6 +7,8 @@ namespace Engine.Driver.Main
     {
         static void Main(string[] args)
         {
+            // var simulator = new ProjectileSimulator();
+            // ProjectileDriver.Simulate(simulator);
             SpringDriver.Simulate();
         }
     }

@@ -50,6 +50,10 @@ namespace Engine.Particles
 
         public void AddForce(Vector force)
         {
+            if(forceAccum==null)
+            {
+                forceAccum=Vector.Zero();
+            }
             forceAccum = forceAccum + force;
         }
 

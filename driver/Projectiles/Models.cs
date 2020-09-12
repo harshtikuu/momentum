@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Engine.Common;
+using Engine.SimulationControllers;
+
 namespace Engine.Driver.Projectile
 {
     public class Snapshot
@@ -14,6 +16,16 @@ namespace Engine.Driver.Projectile
             this.Time = Time;
         }
 
+    }
+
+    public class ISimulation
+    {
+        IEnumerable<ParticleState> Snapshots{get;set;}
+    }
+
+    public class BasicSimulation:ISimulation
+    {
+        public IEnumerable<ParticleState> Snapshots { get; set; }
     }
 
     public class ProjectileSimulation

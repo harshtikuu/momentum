@@ -23,7 +23,7 @@ namespace Engine.Driver.Projectile
             projectile.setVelocity(initialVelocity);
             var g = new Vector(0,-10,0);
             projectile.setAcceleration(Constants.AccelerationDueToGravity);
-            projectile.forceAccum = Vector.Zero();
+            projectile.netForce = Vector.Zero();
             projectile.setMass(10);
 
         }
@@ -42,7 +42,7 @@ namespace Engine.Driver.Projectile
                 var snapshot = new Snapshot(projectile.position,startTime);
                 positionWithTime.Add(snapshot);
                 //forceGenerator.applyForce(ref projectile,projectile.mass);
-                projectile.forceAccum = new Vector(0,0,0);
+                projectile.netForce = new Vector(0,0,0);
                 projectile.Integrate(tick);
                 startTime+=tick;
             }

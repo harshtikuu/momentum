@@ -19,7 +19,7 @@ namespace Engine.Driver
         {
             mass = new Particle();
             Vector Anchor = Vector.Zero();
-            double k = 1;
+            double k = .1;
             double restLength = 0;
             forceGenerator = new AnchoredSpringGenerator(Anchor,k,restLength);
         }
@@ -28,21 +28,13 @@ namespace Engine.Driver
         {
             mass.setMass(5);
             mass.setAcceleration(Vector.Zero());
-            mass.forceAccum = Vector.Zero();
-            var initialVelocity = new Vector(10,0,0);
+            mass.netForce = Vector.Zero();
+            var initialVelocity = new Vector(5,0,0);
             mass.setPostition(new Vector(0,0,0));
             mass.setVelocity(initialVelocity);
-            mass.forceAccum = Vector.Zero();
-            mass.setAcceleration(getAcceleration(mass));
+            mass.netForce = Vector.Zero();
             
-        }
-
-        public Vector getAcceleration(Particle mass)
-        {
-            double k = 5;
-            var force = -(mass.position*k);
-            var acc = force*mass.inverseMass;
-            return acc;
+            
         }
 
         public List<Snapshot> Simulate()
@@ -50,15 +42,14 @@ namespace Engine.Driver
             var response = new List<Snapshot>();
             InitialiseParticle();
             double startTime = 0;
-            double EndTime = 50;
-            double tick = Utils.GetTickFromFPS(60);
+            double EndTime = 300;
+            double tick = Utils.GetTickFromFPS(100);
 
             while(startTime<EndTime)
             {
                 var snapshot = new Snapshot(this.mass.position,startTime);
                 response.Add(snapshot);
-                mass.setAcceleration(getAcceleration(mass));
-                //forceGenerator.applyForce(ref mass,tick);
+                forceGenerator.applyForce(ref mass,tick);
                 mass.Integrate(tick);
                 startTime+=tick;
             }

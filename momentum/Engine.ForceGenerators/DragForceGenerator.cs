@@ -13,7 +13,7 @@ namespace Engine.ForceGenerators
         {
             this.DragConstant = DragConstant;
         }
-        public double DragConstant { get; set; }
+        public double DragConstant { get; protected set; }
         public void applyForce(ref Particle particle, double tick)
         {
             Vector velocity = particle.velocity;

@@ -7,15 +7,17 @@ namespace Engine.ForceGenerators
 {
     public class GravityForceGenerator : IForceGenerator
     {
-        public Vector accDueToGravity = new Vector(0, -9.81, 0);
+        public Vector accDueToGravity = Constants.AccelerationDueToGravity;
         public void applyForce(ref Particle particle, double tick)
         {
-            Vector force = accDueToGravity * particle.mass;
+            Vector force = accDueToGravity*particle.mass;
             particle.AddForce(force);
         }
+        public Vector getAcceleration(Particle particle,double tick)
+        {
+            return accDueToGravity;
+        }
     }
-
-    
     
 
 }

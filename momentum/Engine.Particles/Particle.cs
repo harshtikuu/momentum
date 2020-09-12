@@ -12,19 +12,16 @@ namespace Engine.Particles
     
         public double mass { get; protected set; }    
         public double inverseMass { get; protected set; }     
-        public Vector forceAccum {get;set;}
+        public Vector netForce {get;set;}
+
         public void Integrate(double tick)
         {
-            double duration = (double)tick;
-            this.acceleration = this.acceleration.addScaledVector(this.forceAccum,inverseMass);
-            this.forceAccum.clear();
-
+            double duration = (double)tick;           
+            this.acceleration = this.netForce*inverseMass;
             this.position = this.position.addScaledVector(this.velocity,duration); 
             this.position = this.position.addScaledVector(this.acceleration,duration*duration*0.5);
-
-            this.velocity = this.velocity.addScaledVector(this.acceleration,duration);
-
-            
+            this.velocity = this.velocity.addScaledVector(this.acceleration,duration);   
+            this.netForce = Vector.Zero();         
         }
         public void setMass(double mass)
         {
@@ -50,11 +47,11 @@ namespace Engine.Particles
 
         public void AddForce(Vector force)
         {
-            if(forceAccum==null)
+            if(netForce==null)
             {
-                forceAccum=Vector.Zero();
+                netForce=Vector.Zero();
             }
-            forceAccum = forceAccum + force;
+            netForce = netForce + force;
         }
 
         public void setAcceleration(Vector a)

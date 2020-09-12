@@ -22,7 +22,7 @@ namespace  Engine.ForceGenerators
             double sprintStrechLength = particle.position.magnitude()-RestLength;
             double forceMagnitude = K*sprintStrechLength;
             Vector springForce = forceDirection*forceMagnitude;
-            particle.AddForce(springForce);            
+            particle.AddForce(springForce);          
         }
     }
 }

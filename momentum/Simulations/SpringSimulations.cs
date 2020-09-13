@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using Engine.Common;
-using Engine.Driver;
+using Engine.SimulationModels;
 using Engine.ForceGenerators;
 using Engine.Interfaces;
 using Engine.Particles;
 using Engine.SimulationControllers;
 
-namespace Engine.Simulations
+namespace Engine.Simulators
 {
-    public class SpringSimulationDriver
+    public class SpringSimulator
     {
         public void Simulate()
         {

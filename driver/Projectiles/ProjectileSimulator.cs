@@ -1,13 +1,13 @@
 using Engine.Particles;
 using Engine.Common;
-using Engine.Driver.Utilities;
+using Engine.SimulationModels.Utilities;
 using System;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using Engine.ForceGenerators;
 
-namespace Engine.Driver.Projectile
+namespace Engine.SimulationModels.Projectile
 {
     public class ProjectileSimulator
     {

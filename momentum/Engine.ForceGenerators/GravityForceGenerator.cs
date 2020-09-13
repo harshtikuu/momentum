@@ -13,10 +13,7 @@ namespace Engine.ForceGenerators
             Vector force = accDueToGravity*particle.mass;
             particle.AddForce(force);
         }
-        public Vector getAcceleration(Particle particle,double tick)
-        {
-            return accDueToGravity;
-        }
+        
     }
     
 

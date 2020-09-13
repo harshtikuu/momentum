@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Engine.Common;
 using Engine.SimulationControllers;
 
-namespace Engine.Driver
+namespace Engine.SimulationModels
 {
     public class Snapshot
     {

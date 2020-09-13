@@ -1,6 +1,6 @@
 using System;
 
-namespace Engine.Driver.Utilities
+namespace Engine.SimulationModels.Utilities
 {
     public class Utils
     {

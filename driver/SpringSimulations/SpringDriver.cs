@@ -1,4 +1,4 @@
-namespace Engine.Driver
+namespace Engine.SimulationModels
 {
     public class SpringDriver
     {

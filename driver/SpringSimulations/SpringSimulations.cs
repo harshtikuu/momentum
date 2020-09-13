@@ -3,11 +3,11 @@ using Engine.Common;
 using Engine.Particles;
 using Engine.Interfaces;
 using System.Collections.Generic;
-using Engine.Driver.Utilities;
+using Engine.SimulationModels.Utilities;
 using Newtonsoft.Json;
 using System.IO;
 
-namespace Engine.Driver
+namespace Engine.SimulationModels
 {
     public class SpringSimulation
     {

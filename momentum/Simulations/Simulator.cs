@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Engine.Driver.Projectile;
 using Engine.Interfaces;
 using Engine.Particles;
 
 using Engine.SimulationControllers;
+using Engine.SimulationModels;
 using Newtonsoft.Json;
 
-namespace Engine.Driver
+namespace Engine.Simulators
 {
     public class Simulator
     {        

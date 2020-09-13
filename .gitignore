@@ -7,3 +7,5 @@ momentum/.DS_Store
 driver/bin
 driver/obj
 driver/.DS_Store
+.vs
+.vscode

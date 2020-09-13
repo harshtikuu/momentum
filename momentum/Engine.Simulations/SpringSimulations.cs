@@ -14,8 +14,8 @@ namespace Engine.Simulators
         {
             Particle particle = new Particle();
             particle.setPostition(Vector.Zero());
-            particle.setVelocity(new Vector(10,0,0));
-            particle.setMass(10);
+            particle.setVelocity(new Vector(50,0,0));
+            particle.setMass(20);
 
             //Initialise spring
             Vector anchorPosition = Vector.Zero();
@@ -23,15 +23,17 @@ namespace Engine.Simulators
             double k = 10;
 
             IForceGenerator generator = new AnchoredSpringGenerator(anchorPosition,k,restLength);
+            IForceGenerator friction = new FrictionalForceGenerator(0.1);
             
             
             //Setup controller
             SimulationController controller = new SimulationController();
-            controller.setTimeLimit(50);
+            controller.setTimeLimit(100);
 
             //Setup Simulator
             var simulator = new Simulator(particle,controller);
             simulator.addForceGenerator(generator);
+            simulator.addForceGenerator(friction);
             var simulation = simulator.Simulate();
             string filePath = "./visualizations/spring-sims.json";
             simulator.SaveToJson(filePath,simulation);

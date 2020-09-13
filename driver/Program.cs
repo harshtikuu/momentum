@@ -11,7 +11,7 @@ namespace Engine.SimulationModels.Main
         {
             // var simulator = new ProjectileSimulator();
             // ProjectileDriver.Simulate(simulator);
-            var simulator = new ProjectileSimulator();
+            var simulator = new SpringSimulator();
             simulator.Simulate();
         }
     }

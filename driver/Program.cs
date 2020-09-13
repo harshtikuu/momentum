@@ -1,6 +1,8 @@
 ﻿using System;
 using Engine.Particles;
 using Engine.Driver.Projectile;
+using Engine.Simulations;
+
 namespace Engine.Driver.Main
 {
     class Program
@@ -9,7 +11,8 @@ namespace Engine.Driver.Main
         {
             // var simulator = new ProjectileSimulator();
             // ProjectileDriver.Simulate(simulator);
-            SpringDriver.Simulate();
+            var simulator = new SpringSimulationDriver();
+            simulator.Simulate();
         }
     }
 }

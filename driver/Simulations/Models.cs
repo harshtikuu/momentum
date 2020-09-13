@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Engine.Common;
 using Engine.SimulationControllers;
 
-namespace Engine.Driver.Projectile
+namespace Engine.Driver
 {
     public class Snapshot
     {

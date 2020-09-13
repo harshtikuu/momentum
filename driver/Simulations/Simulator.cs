@@ -15,15 +15,20 @@ namespace Engine.Driver
         private Particle particle = null;
 
         public int FPS{get;protected set;}
-        private IEnumerable<IForceGenerator> forceGenerators = null;
+        private List<IForceGenerator> forceGenerators = null;
         private ISimulationController simulationController= null;
-        public Simulator(Particle particle,IEnumerable<IForceGenerator> forceGenerators,ISimulationController simulationController)
+        public Simulator(Particle particle,ISimulationController simulationController)
         {
             this.particle = particle;
-            this.forceGenerators = forceGenerators;
             this.simulationController = simulationController;
+            forceGenerators = new List<IForceGenerator>();
             setFPS(60);
             
+        }
+
+        public void addForceGenerator(IForceGenerator generator)
+        {
+            forceGenerators.Add(generator);
         }
 
         private double getTick()
@@ -46,9 +51,12 @@ namespace Engine.Driver
 
         private void applyForce(double tick)
         {
-            foreach(var forceGenerator in forceGenerators)
+            if(forceGenerators!=null && forceGenerators.Count>0)
             {
-                forceGenerator.applyForce(ref particle,tick);
+                foreach(var forceGenerator in forceGenerators)
+                {
+                    forceGenerator.applyForce(ref particle,tick);
+                }
             }
         }
 
@@ -75,8 +83,9 @@ namespace Engine.Driver
             var snapshots = new List<ParticleState>();
             while(!simulationController.endSimulation(particleState))
             {
-                snapshots.Add(this.GetParticleState(startTime));
+                snapshots.Add(particleState);
                 this.applyForce(tick);
+                particleState = GetParticleState(startTime);
                 this.particle.Integrate(tick);
                 startTime+=tick;
             }
@@ -84,12 +93,11 @@ namespace Engine.Driver
             return response;
         }
 
-        public string SaveToJson(string fileName,BasicSimulation simulation)
+        public string SaveToJson(string filePath,BasicSimulation simulation)
         {
             string json = JsonConvert.SerializeObject(simulation);
-            fileName = "./simulations/"+fileName;
-            File.WriteAllText(fileName,json);
-            return fileName;
+            File.WriteAllText(filePath,json);
+            return filePath;
         }
     }
 }

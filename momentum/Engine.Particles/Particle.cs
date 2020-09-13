@@ -8,7 +8,18 @@ namespace Engine.Particles
     {
         public Vector position {get;protected set;}
         public Vector velocity {get;protected set;}
-        public Vector acceleration { get; protected set;}
+        public Vector acceleration 
+        {
+            get
+            {
+                if(netForce==null)
+                {
+                    netForce = Vector.Zero();
+                }
+                return netForce*inverseMass;
+            }
+            set{}
+        }
     
         public double mass { get; protected set; }    
         public double inverseMass { get; protected set; }     
@@ -17,7 +28,7 @@ namespace Engine.Particles
         public void Integrate(double tick)
         {
             double duration = (double)tick;           
-            this.acceleration = this.netForce*inverseMass;
+            //this.acceleration = this.netForce*inverseMass;
             this.position = this.position.addScaledVector(this.velocity,duration); 
             this.position = this.position.addScaledVector(this.acceleration,duration*duration*0.5);
             this.velocity = this.velocity.addScaledVector(this.acceleration,duration);   

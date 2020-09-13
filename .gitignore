@@ -2,6 +2,7 @@
 bin
 obj
 momentum/bin
+momentum/obj
 momentum/.DS_Store
 driver/bin
 driver/obj
